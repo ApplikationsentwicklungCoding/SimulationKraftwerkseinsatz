@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\TwinCAT3\Config\TcConfig.xsd">
+  <Local>
+      <Name>MyLocalSystem</Name>
+      <NetId>192.168.200.250.1.1</NetId>
+  </Local>
+  <RemoteConnections>
+    <Route>
+      <Name>MyRemoteSystem</Name>
+      <Address>RemoteSytem</Address>        
+      <NetId>192.168.200.200.1.1</NetId>
+      <Type>TCP_IP</Type>
+    </Route>
+  </RemoteConnections>
+</TcConfig>
