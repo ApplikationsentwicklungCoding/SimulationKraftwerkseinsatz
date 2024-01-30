@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="BitLesen" Id="{e6a103b1-82cc-43e6-bec5-7490cb54c7e5}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION BitLesen : BOOL
+VAR_INPUT
+Eingang: BYTE;
+	Position: BYTE;
+END_VAR
+VAR
+	Bitmuster: BYTE;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Bitmuster := SHL(1, Position);
+IF ((Eingang AND Bitmuster) = Bitmuster) THEN
+	BitLesen := TRUE;
+ELSE		
+	BitLesen:= FALSE;	
+END_IF;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

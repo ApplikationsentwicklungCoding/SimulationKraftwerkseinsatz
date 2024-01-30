@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="IntegerLesen" Id="{a6a4413c-8c3c-42d0-b546-1186666f9e91}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION IntegerLesen : INT
+VAR_INPUT
+	LowByte: BYTE;
+	HighByte: BYTE;
+END_VAR
+VAR
+	DoppelByte: WORD;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[DoppelByte := 256 * LowByte + HighByte;	// Siemens fährt ja Little Endian
+IntegerLesen := WORD_TO_INT(DoppelByte);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

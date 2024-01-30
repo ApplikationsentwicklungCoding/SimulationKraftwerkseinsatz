@@ -11,12 +11,10 @@ public class CxDaten
 
     public string? VersionsStringPlc { get; set; }
     public byte[] BefehlePlc { get; } = new byte[1024];
-
     public byte[] Di { get; } = new byte[1024];
     public byte[] Da { get; } = new byte[1024];
     public byte[] Ai { get; } = new byte[1024];
     public byte[] Aa { get; } = new byte[1024];
-
 
     public byte GetByte(DatenBereich datenBereich, int index) => datenBereich switch
     {
@@ -26,13 +24,12 @@ public class CxDaten
         DatenBereich.Aa => Aa[index],
         _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
     };
-    public int GetInt(DatenBereich datenBereich, int index)
-        => datenBereich switch
-        {
-            DatenBereich.Di => Di[index] << 8 + Di[1 + index],
-            DatenBereich.Da => Da[index] << 8 + Da[1 + index],
-            DatenBereich.Ai => Ai[index] << 8 + Ai[1 + index],
-            DatenBereich.Aa => Aa[index] << 8 + Aa[1 + index],
-            _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
-        };
+    public int GetInt(DatenBereich datenBereich, int index) => datenBereich switch
+    {
+        DatenBereich.Di => (256 * Di[1 + index]) + Di[index],
+        DatenBereich.Da => (256 * Da[1 + index]) + Da[index],
+        DatenBereich.Ai => (256 * Ai[1 + index]) + Ai[index],
+        DatenBereich.Aa => (256 * Aa[1 + index]) + Aa[index],
+        _ => throw new ArgumentOutOfRangeException(nameof(datenBereich), datenBereich, null)
+    };
 }

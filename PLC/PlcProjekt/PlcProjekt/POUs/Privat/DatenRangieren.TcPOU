@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="DatenRangieren" Id="{ad49a684-d9e6-4dba-bece-08745f191ac1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM DatenRangieren
+VAR	
+	VersionsText: STRING := 'Simulation Kraftwerkseinsatz V3.0';
+	Potentiometer_1_1 : IntegerSchreiben;
+	Potentiometer_1_2 : IntegerSchreiben;
+	Potentiometer_1_3 : IntegerSchreiben;
+	Potentiometer_1_4 : IntegerSchreiben;
+	Potentiometer_1_5 : IntegerSchreiben;
+	
+	Potentiometer_2_1 : IntegerSchreiben;
+	Potentiometer_2_2 : IntegerSchreiben;
+	Potentiometer_2_3 : IntegerSchreiben;
+	Potentiometer_2_4 : IntegerSchreiben;
+	Potentiometer_2_5 : IntegerSchreiben;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[STRNCPY (ADR( _plcToPc.PlcToPc[96]), ADR( VersionsText), SIZEOF(VersionsText));
+
+_PlcToPc.PlcToPc[0] := Plc_DIO.DI_1_1;
+_PlcToPc.PlcToPc[1] := Plc_DIO.DI_1_2;
+_PlcToPc.PlcToPc[2] := Plc_DIO.DI_1_3;
+_PlcToPc.PlcToPc[3] := Plc_DIO.DI_1_4;
+_PlcToPc.PlcToPc[4] := Plc_DIO.DI_1_5;
+
+_PlcToPc.PlcToPc[5] := Plc_DIO.DI_2_1;
+_PlcToPc.PlcToPc[6] := Plc_DIO.DI_2_2;
+_PlcToPc.PlcToPc[7] := Plc_DIO.DI_2_3;
+_PlcToPc.PlcToPc[8] := Plc_DIO.DI_2_4;
+_PlcToPc.PlcToPc[9] := Plc_DIO.DI_2_5;
+
+
+
+Potentiometer_1_1(Value:= Plc_AN.AI_1_1, LowByte=> _PlcToPc.PlcToPc[32], HighByte=>_PlcToPc.PlcToPc[33]);
+Potentiometer_1_1(Value:= Plc_AN.AI_1_2, LowByte=> _PlcToPc.PlcToPc[34], HighByte=>_PlcToPc.PlcToPc[35]);
+Potentiometer_1_1(Value:= Plc_AN.AI_1_3, LowByte=> _PlcToPc.PlcToPc[36], HighByte=>_PlcToPc.PlcToPc[37]);
+Potentiometer_1_1(Value:= Plc_AN.AI_1_4, LowByte=> _PlcToPc.PlcToPc[38], HighByte=>_PlcToPc.PlcToPc[39]);
+Potentiometer_1_1(Value:= Plc_AN.AI_1_5, LowByte=> _PlcToPc.PlcToPc[40], HighByte=>_PlcToPc.PlcToPc[41]);
+
+Potentiometer_2_1(Value:= Plc_AN.AI_2_1, LowByte=> _PlcToPc.PlcToPc[42], HighByte=>_PlcToPc.PlcToPc[43]);
+Potentiometer_2_2(Value:= Plc_AN.AI_2_2, LowByte=> _PlcToPc.PlcToPc[44], HighByte=>_PlcToPc.PlcToPc[45]);
+Potentiometer_2_3(Value:= Plc_AN.AI_2_3, LowByte=> _PlcToPc.PlcToPc[46], HighByte=>_PlcToPc.PlcToPc[47]);
+Potentiometer_2_4(Value:= Plc_AN.AI_2_4, LowByte=> _PlcToPc.PlcToPc[48], HighByte=>_PlcToPc.PlcToPc[49]);
+Potentiometer_2_5(Value:= Plc_AN.AI_2_5, LowByte=> _PlcToPc.PlcToPc[50], HighByte=>_PlcToPc.PlcToPc[51]);
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="DatenRangieren">
+      <LineId Id="3" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="93" Count="2" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="100" Count="0" />
+      <LineId Id="96" Count="0" />
+      <LineId Id="101" Count="3" />
+      <LineId Id="97" Count="2" />
+      <LineId Id="63" Count="0" />
+      <LineId Id="4" Count="0" />
+      <LineId Id="74" Count="3" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="80" Count="3" />
+      <LineId Id="86" Count="0" />
+      <LineId Id="89" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

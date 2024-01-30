@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="AlleBitSetzen" Id="{ee853584-3ce0-46d1-9e66-d17c8cae59e3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION AlleBitSetzen : BYTE
+VAR_INPUT
+	B1:BOOL;
+	B2:BOOL;
+	B3:BOOL;
+	B4:BOOL;
+	B5:BOOL;
+	B6:BOOL;
+	B7:BOOL;
+	B8:BOOL;	
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[AlleBitSetzen := 0;
+
+IF B1 THEN AlleBitSetzen := 2#0000_0001 + AlleBitSetzen; END_IF;
+IF B2 THEN AlleBitSetzen := 2#0000_0010 + AlleBitSetzen; END_IF;
+IF B3 THEN AlleBitSetzen := 2#0000_0100 + AlleBitSetzen; END_IF;
+IF B4 THEN AlleBitSetzen := 2#0000_1000 + AlleBitSetzen; END_IF;
+IF B5 THEN AlleBitSetzen := 2#0001_0000 + AlleBitSetzen; END_IF;
+IF B6 THEN AlleBitSetzen := 2#0010_0000 + AlleBitSetzen; END_IF;
+IF B7 THEN AlleBitSetzen := 2#0100_0000 + AlleBitSetzen; END_IF;
+IF B8 THEN AlleBitSetzen := 2#1000_0000 + AlleBitSetzen; END_IF;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

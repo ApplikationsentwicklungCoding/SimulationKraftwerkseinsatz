@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="SystemFunktionen" Id="{21a6b941-b515-4a59-93af-71953637eed8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK SystemFunktionen
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	Timer_1Hz: TON;	
+	Timer_1_25Hz: TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Timer_1Hz(IN:= NOT Timer_1Hz.Q, PT:= T#1S);
+Blinker.Clock_1Hz := Timer_1Hz.ET < T#500MS;
+
+Timer_1_25Hz(IN:= NOT Timer_1_25Hz.Q, PT:= T#800MS);
+Blinker.Clock_1_25Hz:= Timer_1_25Hz.ET < T#400MS;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

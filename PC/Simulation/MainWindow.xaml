@@ -1,0 +1,89 @@
+﻿<Window x:Class="Simulation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:Simulation.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewModel:VmSimulation}"
+        mc:Ignorable="d"
+        Title="Simulation Kraftwerkseinsatz" Height="400" Width="1000">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="2" Grid.Row="1" Content="Value:" FontSize="16pt" />
+        <Label Grid.Column="3" Grid.Row="1" Content="Staus:" FontSize="16pt" />
+
+        <Label Grid.Column="1" Grid.Row="2" Content="Potentiometer 11:" FontSize="16pt" />
+        <Label Grid.Column="2" Grid.Row="2" Content="{Binding StringValuePotentiometer11}" FontSize="14pt" />
+        <Label Grid.Column="3" Grid.Row="2" Content="{Binding StringStatusPotentiometer11}" FontSize="14pt" />
+        
+        <Label Grid.Column="1" Grid.Row="3" Content="Potentiometer 12:" FontSize="16pt" />
+        <Label Grid.Column="2" Grid.Row="3" Content="{Binding StringValuePotentiometer12}" FontSize="14pt" />
+        <Label Grid.Column="3" Grid.Row="3" Content="{Binding StringStatusPotentiometer12}" FontSize="14pt" />
+
+        <Label Grid.Column="1" Grid.Row="4" Content="Potentiometer 13:" FontSize="16pt" />
+        <Label Grid.Column="2" Grid.Row="4" Content="{Binding StringValuePotentiometer13}" FontSize="14pt" />
+        <Label Grid.Column="3" Grid.Row="4" Content="{Binding StringStatusPotentiometer13}" FontSize="14pt" />
+
+        <Label Grid.Column="1" Grid.Row="5" Content="Potentiometer 14:" FontSize="16pt" />
+        <Label Grid.Column="2" Grid.Row="5" Content="{Binding StringValuePotentiometer14}" FontSize="14pt" />
+        <Label Grid.Column="3" Grid.Row="5" Content="{Binding StringStatusPotentiometer14}" FontSize="14pt" />
+
+        <Label Grid.Column="1" Grid.Row="6" Content="Potentiometer 15:" FontSize="16pt" />
+        <Label Grid.Column="2" Grid.Row="6" Content="{Binding StringValuePotentiometer15}" FontSize="14pt" />
+        <Label Grid.Column="3" Grid.Row="6" Content="{Binding StringStatusPotentiometer15}" FontSize="14pt" />
+
+
+
+        <Label Grid.Column="6" Grid.Row="1" Content="Value:" FontSize="16pt" />
+        <Label Grid.Column="7" Grid.Row="1" Content="Staus:" FontSize="16pt" />
+
+        <Label Grid.Column="5" Grid.Row="2" Content="Potentiometer 21:" FontSize="16pt" />
+        <Label Grid.Column="6" Grid.Row="2" Content="{Binding StringValuePotentiometer21}" FontSize="14pt" />
+        <Label Grid.Column="7" Grid.Row="2" Content="{Binding StringStatusPotentiometer21}" FontSize="14pt" />
+
+        <Label Grid.Column="5" Grid.Row="3" Content="Potentiometer 22:" FontSize="16pt" />
+        <Label Grid.Column="6" Grid.Row="3" Content="{Binding StringValuePotentiometer22}" FontSize="14pt" />
+        <Label Grid.Column="7" Grid.Row="3" Content="{Binding StringStatusPotentiometer22}" FontSize="14pt" />
+
+        <Label Grid.Column="5" Grid.Row="4" Content="Potentiometer 23:" FontSize="16pt" />
+        <Label Grid.Column="6" Grid.Row="4" Content="{Binding StringValuePotentiometer23}" FontSize="14pt" />
+        <Label Grid.Column="7" Grid.Row="4" Content="{Binding StringStatusPotentiometer23}" FontSize="14pt" />
+
+        <Label Grid.Column="5" Grid.Row="5" Content="Potentiometer 24:" FontSize="16pt" />
+        <Label Grid.Column="6" Grid.Row="5" Content="{Binding StringValuePotentiometer24}" FontSize="14pt" />
+        <Label Grid.Column="7" Grid.Row="5" Content="{Binding StringStatusPotentiometer24}" FontSize="14pt" />
+
+        <Label Grid.Column="5" Grid.Row="6" Content="Potentiometer 25:" FontSize="16pt" />
+        <Label Grid.Column="6" Grid.Row="6" Content="{Binding StringValuePotentiometer25}" FontSize="14pt" />
+        <Label Grid.Column="7" Grid.Row="6" Content="{Binding StringStatusPotentiometer25}" FontSize="14pt" />
+
+
+
+
+
+        <Rectangle Grid.Column="4" Grid.Row="4" Fill="{Binding BrushStarttaster}"  />
+    </Grid>
+</Window>

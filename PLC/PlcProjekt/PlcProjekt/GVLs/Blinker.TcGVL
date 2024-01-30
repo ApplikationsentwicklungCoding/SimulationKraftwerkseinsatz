@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <GVL Name="Blinker" Id="{ef2e17ec-da6e-4158-9389-028e144122b9}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	Clock_1Hz:BOOL;
+	Clock_1_25Hz:BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

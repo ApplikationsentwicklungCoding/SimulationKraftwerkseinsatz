@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
+  <POU Name="IntegerSchreiben" Id="{e01eaed2-b029-4252-a378-1f0bb01560d3}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK IntegerSchreiben
+VAR_INPUT
+	Value: INT;
+END_VAR
+VAR_OUTPUT
+	LowByte: BYTE;
+	HighByte: BYTE;
+END_VAR
+VAR	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[LowByte := INT_TO_BYTE(Value);
+HighByte := INT_TO_BYTE(Value / 256);]]></ST>
+    </Implementation>
+    <LineIds Name="IntegerSchreiben">
+      <LineId Id="9" Count="0" />
+      <LineId Id="14" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
