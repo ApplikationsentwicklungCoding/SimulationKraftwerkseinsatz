@@ -4,7 +4,8 @@ namespace Simulation.Model;
 
 public class ModelSimulation
 {
-    private static readonly log4net.ILog s_log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+    private static readonly log4net.ILog s_log =
+        log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
     public byte StatusPotentiometer11 { get; set; }
     public byte StatusPotentiometer12 { get; set; }
@@ -32,6 +33,8 @@ public class ModelSimulation
 
     private readonly CancellationTokenSource _cancellationTokenSource;
     private readonly DatenRangieren _datenRangieren;
+    private readonly Cx9020 _cx9020;
+    private readonly CxDaten _cxDaten;
 
     public ModelSimulation(CancellationTokenSource cancellationTokenSource)
     {
@@ -39,15 +42,15 @@ public class ModelSimulation
 
         _cancellationTokenSource = cancellationTokenSource;
 
-        var cxDaten = new CxDaten();
-        _ = new Cx9020(cxDaten, cancellationTokenSource);
-        _datenRangieren = new DatenRangieren(this, cxDaten);
+        _cxDaten = new CxDaten();
+        _cx9020 = new Cx9020(_cxDaten, cancellationTokenSource);
+        _datenRangieren = new DatenRangieren(this, _cxDaten);
 
         _ = Task.Run(ModelSimulationTask);
     }
+
     private void ModelSimulationTask()
     {
-
         while (!_cancellationTokenSource.IsCancellationRequested)
         {
             _datenRangieren.Rangieren();
@@ -55,4 +58,7 @@ public class ModelSimulation
             Thread.Sleep(100);
         }
     }
+
+    public string GetKommunikationInfo() => _cx9020.GetPlcStatus();
+    public string? GetVersionsString() => _cxDaten.VersionsStringPlc;
 }

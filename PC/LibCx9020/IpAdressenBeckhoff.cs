@@ -1,3 +1,4 @@
+// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 namespace LibCx9020;
 
 public class IpAdressenBeckhoff

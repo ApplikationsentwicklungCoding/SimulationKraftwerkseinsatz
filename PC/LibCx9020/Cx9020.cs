@@ -7,7 +7,7 @@ public class Cx9020
 {
     private static readonly log4net.ILog s_log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-    public enum PlcDaemonStatus
+    private enum PlcDaemonStatus
     {
         SpsPingStarten = 0,
         SpsPingAbwarten = 1,
@@ -19,8 +19,7 @@ public class Cx9020
         Gefunden
     }
 
-    public string? PlcAktuellerSchritt { get; set; }
-    public PlcDaemonStatus PlcStatus { get; set; }
+    private PlcDaemonStatus PlcStatus { get; set; }
     private readonly CxDaten _cxDaten;
 
     private readonly byte[] _pcToPlc;
@@ -63,8 +62,6 @@ public class Cx9020
                 case PlcDaemonStatus.SpsPingStarten:
                     s_log.Debug("SpsPingStarten");
 
-                    PlcAktuellerSchritt = "Ping starten - ";
-
                     _plcBeckhoff.PlcSuchen();
 
                     PlcStatus = PlcDaemonStatus.SpsPingAbwarten;
@@ -72,12 +69,10 @@ public class Cx9020
                     break;
 
                 case PlcDaemonStatus.SpsPingAbwarten:
-                    PlcAktuellerSchritt = "Ping abwarten - ";
 
                     if (_plcBeckhoff.PlcGefunden())
                     {
                         s_log.Debug("Beckhoff gefunden");
-                        PlcAktuellerSchritt = "Beckhoff gefunden - ";
                         PlcStatus = PlcDaemonStatus.SpsBeckhoff;
                         continue;
                     }
@@ -90,7 +85,6 @@ public class Cx9020
                     break;
 
                 case PlcDaemonStatus.SpsBeckhoff:
-                    PlcAktuellerSchritt = "";
                     if (_plcBeckhoff.PlcBeckhoffTask())
                     {
                         s_log.Debug("Kommunikationsproblem Beckhoff");
@@ -146,9 +140,12 @@ public class Cx9020
         var enc = new ASCIIEncoding();
         _cxDaten.VersionsStringPlc = enc.GetString(versionsStringPlc, 0, textLaenge);
     }
-    public void ResetPlcInfo()
+
+    private void ResetPlcInfo()
     {
         _zyklusZeitMax = new TimeSpan();
         _zyklusZeitMin = new TimeSpan(12345, 23, 59, 59);
     }
+
+    public string GetPlcStatus()=>PlcStatus.ToString();
 }

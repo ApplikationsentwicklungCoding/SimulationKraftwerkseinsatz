@@ -14,6 +14,9 @@ public partial class VmSimulation : ObservableObject
 
         BrushStarttaster = Brushes.LawnGreen;
 
+        StringPlcInfo = "PlcInfo";
+        StringKommunikationInfo = "KommunikationInfo";
+
         StringValuePotentiometer11 = "";
         StringValuePotentiometer12 = "";
         StringValuePotentiometer13 = "";
@@ -67,8 +70,10 @@ public partial class VmSimulation : ObservableObject
             StringStatusPotentiometer24 = $"0b{_modelSimulation.StatusPotentiometer24:b8}";
             StringStatusPotentiometer25 = $"0b{_modelSimulation.StatusPotentiometer25:b8}";
 
+            StringKommunikationInfo = _modelSimulation.GetKommunikationInfo();
+            StringPlcInfo = _modelSimulation.GetVersionsString();
+
             Thread.Sleep(100);
         }
     }
-
 }

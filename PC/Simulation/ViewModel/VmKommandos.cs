@@ -5,5 +5,5 @@ namespace Simulation.ViewModel;
 public partial class VmSimulation
 {
     [RelayCommand]
-    private void CheckBoxHaken(string str) => _ = str;
+    private static void CheckBoxHaken(string str) => _ = str;
 }

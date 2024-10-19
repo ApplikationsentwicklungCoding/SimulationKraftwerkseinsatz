@@ -6,30 +6,32 @@
         xmlns:viewModel="clr-namespace:Simulation.ViewModel"
         d:DataContext="{d:DesignInstance Type=viewModel:VmSimulation}"
         mc:Ignorable="d"
-        Title="Simulation Kraftwerkseinsatz" Height="400" Width="1000">
+        Title="Simulation Kraftwerkseinsatz" Height="430" Width="1000">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
         <Label Grid.Column="2" Grid.Row="1" Content="Value:" FontSize="16pt" />
@@ -38,7 +40,7 @@
         <Label Grid.Column="1" Grid.Row="2" Content="Potentiometer 11:" FontSize="16pt" />
         <Label Grid.Column="2" Grid.Row="2" Content="{Binding StringValuePotentiometer11}" FontSize="14pt" />
         <Label Grid.Column="3" Grid.Row="2" Content="{Binding StringStatusPotentiometer11}" FontSize="14pt" />
-        
+
         <Label Grid.Column="1" Grid.Row="3" Content="Potentiometer 12:" FontSize="16pt" />
         <Label Grid.Column="2" Grid.Row="3" Content="{Binding StringValuePotentiometer12}" FontSize="14pt" />
         <Label Grid.Column="3" Grid.Row="3" Content="{Binding StringStatusPotentiometer12}" FontSize="14pt" />
@@ -54,7 +56,6 @@
         <Label Grid.Column="1" Grid.Row="6" Content="Potentiometer 15:" FontSize="16pt" />
         <Label Grid.Column="2" Grid.Row="6" Content="{Binding StringValuePotentiometer15}" FontSize="14pt" />
         <Label Grid.Column="3" Grid.Row="6" Content="{Binding StringStatusPotentiometer15}" FontSize="14pt" />
-
 
 
         <Label Grid.Column="6" Grid.Row="1" Content="Value:" FontSize="16pt" />
@@ -81,9 +82,10 @@
         <Label Grid.Column="7" Grid.Row="6" Content="{Binding StringStatusPotentiometer25}" FontSize="14pt" />
 
 
+        <Label Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="8" Content="{Binding StringKommunikationInfo}" FontSize="14pt"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="9" Content="{Binding StringPlcInfo}" FontSize="14pt"/>
 
 
-
-        <Rectangle Grid.Column="4" Grid.Row="4" Fill="{Binding BrushStarttaster}"  />
+        <Rectangle Grid.Column="4" Grid.Row="4" Fill="{Binding BrushStarttaster}" />
     </Grid>
 </Window>

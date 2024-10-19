@@ -8,6 +8,9 @@ public partial class VmSimulation
 {
     [ObservableProperty] private Brush? _brushStarttaster;
 
+    [ObservableProperty] private string? _stringPlcInfo;
+    [ObservableProperty] private string? _stringKommunikationInfo;
+
     [ObservableProperty] private string? _stringValuePotentiometer11;
     [ObservableProperty] private string? _stringValuePotentiometer12;
     [ObservableProperty] private string? _stringValuePotentiometer13;
